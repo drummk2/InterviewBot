@@ -1,4 +1,4 @@
-# GenealogyBot
+# InterviewBot
 The following project aimed to develop both a chatbot, and browser-based graphical tool, in order to examine the effectiveness of chatbots in gathering family history information via interviews, and subsequently generating family trees to reflect the newly gathered information.
 
 The following third-party libraries or data sources were utilised during the development of this chatbot:     
