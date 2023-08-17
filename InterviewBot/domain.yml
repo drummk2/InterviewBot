@@ -1,0 +1,69 @@
+version: "3.1"
+
+actions:
+  - action_biography_form
+  - action_process_confirmation_of_death
+  - action_process_confirmation_of_life
+  - action_process_correct_information
+  - action_process_incorrect_information
+  - action_process_name_given
+  - action_process_place_given
+  - action_process_year_given
+
+entities:
+  - DATE
+  - GPE
+  - PERSON
+
+forms:
+  biography_form:
+    required_slots:
+      - biography
+
+intents:
+  - greet
+  - user_confirms_correct_information
+  - user_confirms_incorrect_information
+  - user_does_not_know
+  - user_gives_biography
+  - user_gives_confirmation_of_death
+  - user_gives_confirmation_of_life
+  - user_gives_name
+  - user_gives_place
+  - user_gives_year
+
+responses:
+  utter_greet:
+    - text: "Hi! I'm Rasa, what's your name?"
+
+  utter_make_your_best_guess:
+    - text: "No worries. For now, just make your best guess, and we can edit it later, if need be."
+
+  utter_rephrase:
+    - text: "I'm sorry, I didn't quite understand that. Could you please rephrase it?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+slots:
+  discussing_death:
+    type: bool
+    initial_value: false
+    mappings:
+      - type: custom
+
+  biography:
+    type: text
+    mappings:
+      - type: from_text
+        not_intent:
+          - greet
+          - user_confirms_correct_information
+          - user_confirms_incorrect_information
+          - user_gives_confirmation_of_death
+          - user_gives_confirmation_of_life
+          - user_does_not_know
+          - user_gives_name
+          - user_gives_place
+          - user_gives_year

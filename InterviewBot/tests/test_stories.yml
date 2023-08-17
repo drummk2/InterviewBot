@@ -1,0 +1,7 @@
+stories:
+- story: standard greet
+  steps:
+    - user: |
+        hello there!
+      intent: greet
+    - action: action_greet

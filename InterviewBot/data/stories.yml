@@ -1,0 +1,978 @@
+version: "3.1"
+
+stories:
+  - story: get_basic_info
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_year_given
+
+  - story: get_basic_info_name_is_correct
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_year_given
+
+  - story: get_basic_info_name_is_incorrect
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_confirms_incorrect_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_incorrect_information
+      - intent: user_gives_place
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_gives_year
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_year_given
+
+  - story: get_basic_info_birthplace_is_correct
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_place
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_year
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_year_given
+
+  - story: get_basic_info_birthplace_is_incorrect
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_place
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_confirms_incorrect_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_incorrect_information
+      - intent: user_gives_year
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_year_given
+
+  - story: get_basic_info_birthyear_is_correct
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_place
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_year
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_year_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+
+  - story: get_basic_info_birthyear_is_incorrect
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_place
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_year
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_year_given
+      - intent: user_confirms_incorrect_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_incorrect_information
+
+  - story: get_basic_info_ancestor_is_alive
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_year_given
+      - intent: user_gives_confirmation_of_life
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_confirmation_of_life
+      - intent: user_gives_biography
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_biography_form
+      - active_loop: action_biography_form
+      - active_loop: null
+
+  - story: get_basic_info_ancestor_is_alive_birthplace_is_correct
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_place
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_year
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_year_given
+      - intent: user_gives_confirmation_of_life
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_confirmation_of_life
+      - intent: user_gives_biography
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_biography_form
+      - active_loop: action_biography_form
+      - active_loop: null
+
+  - story: get_basic_info_ancestor_is_alive_birthplace_is_incorrect
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_place
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_confirms_incorrect_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_incorrect_information
+      - intent: user_gives_year
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_year_given
+      - intent: user_gives_confirmation_of_life
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_confirmation_of_life
+      - intent: user_gives_biography
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_biography_form
+      - active_loop: action_biography_form
+      - active_loop: null
+
+  - story: get_basic_info_ancestor_is_alive_birthyear_is_correct
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_place
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_year
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_year_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_confirmation_of_life
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_confirmation_of_life
+      - intent: user_gives_biography
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_biography_form
+      - active_loop: action_biography_form
+      - active_loop: null
+
+  - story: get_basic_info_ancestor_is_alive_birthyear_is_incorrect
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_place
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_year
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_year_given
+      - intent: user_confirms_incorrect_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_incorrect_information
+      - intent: user_gives_confirmation_of_life
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_confirmation_of_life
+      - intent: user_gives_biography
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_biography_form
+      - active_loop: action_biography_form
+      - active_loop: null
+
+  - story: get_basic_info_ancestor_is_alive_name_is_correct
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_place
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_gives_year
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_year_given
+      - intent: user_gives_confirmation_of_life
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_confirmation_of_life
+      - intent: user_gives_biography
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_biography_form
+      - active_loop: action_biography_form
+      - active_loop: null
+
+  - story: get_basic_info_ancestor_is_alive_name_is_incorrect
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_confirms_incorrect_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_incorrect_information
+      - intent: user_gives_place
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_gives_year
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_year_given
+      - intent: user_gives_confirmation_of_life
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_confirmation_of_life
+      - intent: user_gives_biography
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_biography_form
+      - active_loop: action_biography_form
+      - active_loop: null
+
+  - story: get_basic_info_ancestor_is_dead
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_year_given
+      - intent: user_gives_confirmation_of_death
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_confirmation_of_death
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_year_given
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_place_given
+      - intent: user_gives_biography
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_biography_form
+      - active_loop: action_biography_form
+      - active_loop: null
+
+  - story: get_basic_info_ancestor_is_dead_birthplace_is_correct
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_year_given
+      - intent: user_gives_confirmation_of_death
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_confirmation_of_death
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_year_given
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_place_given
+      - intent: user_gives_biography
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_biography_form
+      - active_loop: action_biography_form
+      - active_loop: null
+
+  - story: get_basic_info_ancestor_is_dead_birthplace_is_incorrect
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_confirms_incorrect_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_incorrect_information
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_year_given
+      - intent: user_gives_confirmation_of_death
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_confirmation_of_death
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_year_given
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_place_given
+      - intent: user_gives_biography
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_biography_form
+      - active_loop: action_biography_form
+      - active_loop: null
+
+  - story: get_basic_info_ancestor_is_dead_birthyear_is_correct
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_year_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_confirmation_of_death
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_confirmation_of_death
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_year_given
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_place_given
+      - intent: user_gives_biography
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_biography_form
+      - active_loop: action_biography_form
+      - active_loop: null
+
+  - story: get_basic_info_ancestor_is_dead_birthyear_is_incorrect
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_year_given
+      - intent: user_confirms_incorrect_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_incorrect_information
+      - intent: user_gives_confirmation_of_death
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_confirmation_of_death
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_year_given
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_place_given
+      - intent: user_gives_biography
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_biography_form
+      - active_loop: action_biography_form
+      - active_loop: null
+
+  - story: get_basic_info_ancestor_is_dead_deathplace_is_correct
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_year_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_confirmation_of_death
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_confirmation_of_death
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_year_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: true
+      - action: action_process_correct_information
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_place_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: true
+      - action: action_process_correct_information
+      - intent: user_gives_biography
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_biography_form
+      - active_loop: action_biography_form
+      - active_loop: null
+
+  - story: get_basic_info_ancestor_is_dead_deathplace_is_incorrect
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_year_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_confirmation_of_death
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_confirmation_of_death
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_year_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: true
+      - action: action_process_correct_information
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_place_given
+      - intent: user_confirms_incorrect_information
+      - slot_was_set:
+          - discussing_death: true
+      - action: action_process_incorrect_information
+      - intent: user_gives_biography
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_biography_form
+      - active_loop: action_biography_form
+      - active_loop: null
+
+  - story: get_basic_info_ancestor_is_dead_deathyear_is_correct
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_year_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_confirmation_of_death
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_confirmation_of_death
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_year_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: true
+      - action: action_process_correct_information
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_place_given
+      - intent: user_gives_biography
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_biography_form
+      - active_loop: action_biography_form
+      - active_loop: null
+
+  - story: get_basic_info_ancestor_is_dead_deathyear_is_incorrect
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_year_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_confirmation_of_death
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_confirmation_of_death
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_year_given
+      - intent: user_confirms_incorrect_information
+      - slot_was_set:
+          - discussing_death: true
+      - action: action_process_incorrect_information
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_place_given
+      - intent: user_gives_biography
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_biography_form
+      - active_loop: action_biography_form
+      - active_loop: null
+
+  - story: get_basic_info_ancestor_is_dead_name_is_correct
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_correct_information
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_year_given
+      - intent: user_gives_confirmation_of_death
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_confirmation_of_death
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_year_given
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_place_given
+      - intent: user_gives_biography
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_biography_form
+      - active_loop: action_biography_form
+      - active_loop: null
+
+  - story: get_basic_info_ancestor_is_dead_name_is_incorrect
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_name_given
+      - intent: user_confirms_incorrect_information
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_incorrect_information
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_place_given
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_year_given
+      - intent: user_gives_confirmation_of_death
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_process_confirmation_of_death
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_year_given
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_place_given
+      - intent: user_gives_biography
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_biography_form
+      - active_loop: action_biography_form
+      - active_loop: null
+
+  - story: get_birthplace
+    steps:
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_place_given
+
+  - story: get_birthyear
+    steps:
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_year_given
+
+  - story: get_confirmation_of_correct_information
+    steps:
+      - intent: user_confirms_correct_information
+      - action: action_process_correct_information
+
+  - story: get_confirmation_of_death
+    steps:
+      - intent: user_gives_confirmation_of_death
+      - action: action_process_confirmation_of_death
+
+  - story: get_confirmation_of_incorrect_information
+    steps:
+      - intent: user_confirms_incorrect_information
+      - action: action_process_incorrect_information
+
+  - story: get_confirmation_of_life
+    steps:
+      - intent: user_gives_confirmation_of_life
+      - action: action_process_confirmation_of_life
+
+  - story: get_details_of_ancestor's_death
+    steps:
+      - intent: user_gives_confirmation_of_death
+      - action: action_process_confirmation_of_death
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_year_given
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_place_given
+
+  - story: get_name
+    steps:
+      - intent: user_gives_name
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_name_given
+
+  - story: get_place_of_death
+    steps:
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_place_given
+
+  - story: get_year_of_death
+    steps:
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_year_given
+
+  - story: transition_from_user_to_ancestor
+    steps:
+      - intent: user_gives_year
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_year_given
+      - intent: user_gives_name
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_name_given
+
+  - story: transition_to_next_person_ancestor_is_alive
+    steps:
+      - intent: user_gives_confirmation_of_life
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_confirmation_of_life
+      - intent: user_gives_biography
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_biography_form
+      - active_loop: action_biography_form
+      - active_loop: null
+      - intent: user_gives_name
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_name_given
+
+  - story: transition_to_next_person_ancestor_is_dead
+    steps:
+      - intent: user_gives_place
+      - slot_was_set:
+        - discussing_death: true
+      - action: action_process_place_given
+      - intent: user_confirms_correct_information
+      - slot_was_set:
+          - discussing_death: true
+      - action: action_process_correct_information
+      - intent: user_gives_biography
+      - slot_was_set:
+          - discussing_death: false
+      - action: action_biography_form
+      - active_loop: action_biography_form
+      - active_loop: null
+      - intent: user_gives_name
+      - slot_was_set:
+        - discussing_death: false
+      - action: action_process_name_given

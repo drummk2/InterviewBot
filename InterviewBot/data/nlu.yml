@@ -1,0 +1,355 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - Hey.
+      - Hello.
+      - Hi.
+      - Hello there.
+      - Good morning.
+      - Good afternoon.
+      - Good evening.
+      - Hey there.
+      - Let's go.
+      - Hey dude.
+      - Goodmorning.
+      - Goodafternoon.
+      - Goodevening.
+
+  - intent: user_confirms_correct_information
+
+  - intent: user_confirms_incorrect_information
+
+  - intent: user_does_not_know
+    examples: |
+      - I don't know.
+      - I do not know.
+      - I'm not sure.
+      - I am not sure.
+      - I don't remember.
+      - I do not remember.
+
+  - intent: user_gives_biography
+    examples: |
+      - A brief description:
+      - a brief description:
+      - Brief description:
+      - brief description:
+      - A brief description
+      - a brief description
+      - Brief description
+      - brief description
+
+  - intent: user_gives_confirmation_of_death
+
+  - intent: user_gives_confirmation_of_life
+
+  - intent: user_gives_name
+    examples: |
+      - My name is [Sally Ann Drumm](PERSON).
+      - My name is [Sarah Jane Reid](PERSON).
+      - My name is [Sarah Ann Tran](PERSON).
+      - My name is [Lily May Reid](PERSON).
+      - My name is [Molly May Smith](PERSON).
+      - My name is [John Paul Murphy](PERSON).
+      - My name is [Paul Henry Drumm](PERSON).
+      - My name is [John Henry Drumm](PERSON).
+      - My name is [John Michael Tran](PERSON).
+      - My name is [Brian Michael Murphy](PERSON).
+      - I'm [Sally Ann Drumm](PERSON).
+      - I'm [Sarah Jane Reid](PERSON).
+      - I'm [Sarah Ann Tran](PERSON).
+      - I'm [Lil May Reid](PERSON).
+      - I'm [Molly May Smith](PERSON).
+      - I'm [John Paul Murphy](PERSON).
+      - I'm [Paul Henry Drumm](PERSON).
+      - I'm [John Henry Drumm](PERSON).
+      - I'm [John Michael Tran](PERSON).
+      - I'm [Brian Michael Murphy](PERSON).
+      - [Sally Ann Drumm](PERSON).
+      - [Sarah Jane Reid](PERSON).
+      - [Sarah Ann Tran](PERSON).
+      - [Lil May Reid](PERSON).
+      - [Molly May Smith](PERSON).
+      - [John Paul Murphy](PERSON).
+      - [Paul Henry Drumm](PERSON).
+      - [John Henry Drumm](PERSON).
+      - [John Michael Tran](PERSON).
+      - [Brian Michael Murphy](PERSON).
+      - My name is [Brenda](PERSON).
+      - My name is [Brenda Reid](PERSON).    
+      - Call me [Brenda](PERSON).
+      - I am [Kieron](PERSON).
+      - I am [Kieron Drumm](PERSON).
+      - I'm [Kieron](PERSON).
+      - I'm [Kieron Drumm](PERSON).
+      - My name's [Brenda Reid](PERSON).
+      - [Kieron](PERSON).
+      - I am known as [Iron Man](PERSON).
+      - You can call me [Kieron](PERSON).
+      - [Kieron](PERSON) is my name.
+      - [Kieron Drumm](PERSON) is my name.
+      - I am [Tom](PERSON).
+      - I am [Tom Drumm](PERSON).
+      - I'm [Tom](PERSON).
+      - I'm [Tom Drumm](PERSON).
+      - My name's [Brenda Reid](PERSON).
+      - [Tom](PERSON).
+      - You can call me [Tom](PERSON).
+      - [Tom](PERSON) is my name.
+      - [Tom Drumm](PERSON) is my name.
+      - My name is [Vincent](PERSON).
+      - My name is [Vincent Tran](PERSON).    
+      - Call me [Vincent](PERSON).
+      - I am [Vincent](PERSON).
+      - I am [Vincent Tran](PERSON).
+      - I'm [Vincent](PERSON).
+      - I'm [Vincent Tran](PERSON).
+      - My name's [Vincent Tran](PERSON).
+      - [Vincent](PERSON).
+      - You can call me [Vincent](PERSON).
+      - [Vincent](PERSON) is my name.
+      - [Vincent Tran](PERSON) is my name.
+      - My father's name was [Kieron](PERSON).
+      - My father was named [Kieron](PERSON).
+      - My father was [Kieron](PERSON).
+      - [Kieron](PERSON) was my father's name.
+      - [Kieron](PERSON) was his name.
+      - His name was [Kieron](PERSON).
+      - He was named [Kieron](PERSON).
+      - My father's name was [Kieron Drumm](PERSON).
+      - My father was named [Kieron Drumm](PERSON).
+      - My father was [Kieron Drumm](PERSON).
+      - [Kieron Drumm](PERSON) was my father's name.
+      - [Kieron Drumm](PERSON) was his name.
+      - His name was [Kieron Drumm](PERSON).
+      - He was named [Kieron Drumm](PERSON).
+      - My dad's name was [Kieron](PERSON).
+      - My dad was named [Kieron](PERSON).
+      - My dad was [Kieron](PERSON).
+      - [Kieron](PERSON) was my dad's name.
+      - My dad's name was [Kieron Drumm](PERSON).
+      - My dad was named [Kieron Drumm](PERSON).
+      - My dad was [Kieron Drumm](PERSON).
+      - [Kieron Drumm](PERSON) was my dad's name.
+      - My mother's name was [Sarah](PERSON).
+      - My mother was named [Sarah](PERSON).
+      - My mother was [Sarah](PERSON).
+      - [Sarah](PERSON) was my mother's name.
+      - [Sarah](PERSON) was her name.
+      - Her name was [Sarah](PERSON).
+      - She was named [Sarah](PERSON).
+      - My mother's name was [Sarah Drumm](PERSON).
+      - My mother was named [Sarah Drumm](PERSON).
+      - My mother was [Sarah Drumm](PERSON).
+      - [Sarah Drumm](PERSON) was my mother's name.
+      - [Sarah Drumm](PERSON) was her name.
+      - Her name was [Sarah Drumm](PERSON).
+      - She was named [Sarah Drumm](PERSON).
+      - My mam's name was [Sarah](PERSON).
+      - My mam was named [Sarah](PERSON).
+      - My mam was [Sarah](PERSON).
+      - [Sarah](PERSON) was my mam's name.
+      - My mam's name was [Sarah Drumm](PERSON).
+      - My mam was named [Sarah Drumm](PERSON).
+      - My mam was [Sarah Drumm](PERSON).
+      - [Sarah Drumm](PERSON) was my mam's name.
+      - It's [Drumm](PERSON).
+      - My last name is [Drumm](PERSON).
+      - My surname is [Drumm](PERSON).
+      - My family name is [Drumm](PERSON).
+      - It's [Drumm](PERSON).
+      - My last name is [Tran](PERSON).
+      - My surname is [Tran](PERSON).
+      - My family name is [Tran](PERSON).
+      - It's [Drumm](PERSON).
+      - My last name is [Murphy](PERSON).
+      - My surname is [Murphy](PERSON).
+      - My family name is [Murphy](PERSON).
+      - It's [Murphy](PERSON).
+      - My last name is [Byrne](PERSON).
+      - My surname is [Byrne](PERSON).
+      - My family name is [Byrne](PERSON).
+      - It's [Byrne](PERSON).
+      - My last name is [Smith](PERSON).
+      - My surname is [Smith](PERSON).
+      - My family name is [Smith](PERSON).
+      - [Drumm](PERSON).
+      - [Tran](PERSON).
+      - [Murphy](PERSON).
+      - [Byrne](PERSON).
+      - My father's surname is [Drumm](PERSON).
+      - My dad's surname is [Drumm](PERSON).
+      - My dad's last name is [Drumm](PERSON).
+      - His last name is [Drumm](PERSON).
+      - His surname is [Drumm](PERSON).
+      - His family name is [Drumm](PERSON).
+      - My father's surname was [Drumm](PERSON).
+      - My dad's surname was [Drumm](PERSON).
+      - My dad's last name was [Drumm](PERSON).
+      - His last name was [Drumm](PERSON).
+      - His surname was [Drumm](PERSON).
+      - His family name was [Drumm](PERSON).
+      - My father's surname is [Tran](PERSON).
+      - My dad's surname is [Tran](PERSON).
+      - My dad's last name is [Tran](PERSON).
+      - His last name is [Tran](PERSON).
+      - His surname is [Tran](PERSON).
+      - His family name is [Tran](PERSON).
+      - My father's surname was [Tran](PERSON).
+      - My dad's surname was [Tran](PERSON).
+      - My dad's last name was [Tran](PERSON).
+      - His last name was [Tran](PERSON).
+      - His surname was [Tran](PERSON).
+      - His family name was [Tran](PERSON).
+      - My mother's surname is [Drumm](PERSON).
+      - My mam's surname is [Drumm](PERSON).
+      - My mam's last name is [Drumm](PERSON).
+      - Her last name is [Drumm](PERSON).
+      - Her surname is [Drumm](PERSON).
+      - Her family name is [Drumm](PERSON).
+      - My mother's surname was [Drumm](PERSON).
+      - My mam's surname was [Drumm](PERSON).
+      - My mam's last name was [Drumm](PERSON).
+      - Her last name was [Drumm](PERSON).
+      - Her surname was [Drumm](PERSON).
+      - Her family name was [Drumm](PERSON).
+      - My mother's surname is [Tran](PERSON).
+      - My mam's surname is [Tran](PERSON).
+      - My mam's last name is [Tran](PERSON).
+      - Her last name is [Tran](PERSON).
+      - Her surname is [Tran](PERSON).
+      - Her family name is [Tran](PERSON).
+      - My mother's surname was [Tran](PERSON).
+      - My mam's surname was [Tran](PERSON).
+      - My mam's last name was [Tran](PERSON).
+      - Her last name was [Tran](PERSON).
+      - Her surname was [Tran](PERSON).
+      - Her family name was [Tran](PERSON).
+
+  - intent: user_gives_place
+    examples: |
+      - [Dublin](GPE).
+      - I was born in [Dublin](GPE).
+      - I come from [Dublin](GPE), originally.
+      - I'm from [Dublin](GPE), originally.
+      - [Dublin](GPE).
+      - I was born in [Paris](GPE).
+      - I come from [Paris](GPE), originally.
+      - I'm from [Paris](GPE), originally.
+      - [Paris](GPE).
+      - I was born in [London](GPE).
+      - I come from [London](GPE), originally.
+      - [London](GPE).
+      - I was born in [Stockholm](GPE).
+      - I come from [Stockholm](GPE), originally.
+      - I'm from [Stockholm](GPE), originally.
+      - [Stockholm](GPE).
+      - My father was born in [Dublin](GPE).
+      - My dad was born in [Dublin](GPE).    
+      - In [Dublin](GPE).
+      - He's from [Dublin](GPE).
+      - He's originally from [Dublin](GPE).
+      - He was born in [Dublin](GPE).
+      - He was born in [Cork](GPE), but lived in Dublin for most of his life.
+      - He comes from [Dublin](GPE), originally.
+      - My father was born in [Paris](GPE).
+      - My dad was born in [Paris](GPE).    
+      - In [Paris](GPE).
+      - He's from [Paris](GPE).
+      - He's originally from [Paris](GPE).
+      - He was born in [Paris](GPE).
+      - He was born in [Cork](GPE), but lived in Paris for most of his life.
+      - He comes from [Paris](GPE), originally.
+      - My mother was born in [Dublin](GPE).
+      - My mam was born in [Dublin](GPE).
+      - In [Dublin](GPE).
+      - She's from [Dublin](GPE).
+      - She's originally from [Dublin](GPE).
+      - She was born in [Dublin](GPE).
+      - She was born in [Cork](GPE), but lived in Dublin for most of her life.
+      - She comes from [Dublin](GPE), originally.
+      - My mother was born in [Paris](GPE).
+      - My mam was born in [Paris](GPE).
+      - In [Paris](GPE).
+      - She's from [Paris](GPE).
+      - She's originally from [Paris](GPE).
+      - She was born in [Paris](GPE).
+      - She was born in [Cork](GPE), but lived in Paris for most of her life.
+      - She comes from [Paris](GPE), originally.
+      - [Dublin](GPE).
+      - In [Dublin](GPE).
+      - He was living in [Dublin](GPE) at the time.
+      - He was living in [Dublin](GPE) when he passed away.
+      - He was living in [Dublin](GPE) when he died.
+      - He died in [Dublin](GPE).
+      - She was living in [Dublin](GPE) at the time.
+      - She was living in [Dublin](GPE) when she passed away.
+      - She was living in [Dublin](GPE) when she died.
+      - She died in [Dublin](GPE).
+      - [Paris](GPE).
+      - In [Paris](GPE).
+      - He was living in [Paris](GPE) at the time.
+      - He was living in [Paris](GPE) when he passed away.
+      - He was living in [Paris](GPE) when he died.
+      - He died in [Paris](GPE).
+      - She was living in [Paris](GPE) at the time.
+      - She was living in [Paris](GPE) when she passed away.
+      - She was living in [Paris](GPE) when she died.
+      - She died in [Paris](GPE).
+
+  - intent: user_gives_year
+    examples: |
+      - The year in which I was born is [1995](DATE).
+      - I was born in the year [1995](DATE).
+      - I was born in [1995](DATE).
+      - [1995](DATE).
+      - In [1995](DATE).
+      - The year [1995](DATE).
+      - The year in which I was born is [1936](DATE).
+      - I was born in the year [1936](DATE).
+      - I was born in [1936](DATE).
+      - [1936](DATE).
+      - In [1936](DATE).
+      - The year [1936](DATE).
+      - The year in which I was born is [2010](DATE).
+      - I was born in the year [2010](DATE).
+      - I was born in [2010](DATE).
+      - [2010](DATE).
+      - In [2010](DATE).
+      - The year [2010](DATE).
+      - My father was born in [1995](DATE).
+      - My dad was born in [1995](DATE).    
+      - The year in which he was born is [1995](DATE).
+      - He was born in the year [1995](DATE).
+      - He was born in [1995](DATE).
+      - [1995](DATE).
+      - In [1995](DATE).
+      - The year [1995](DATE).
+      - Oh, I think he was born in [1965](DATE).
+      - My mother was born in [1995](DATE).
+      - My mam was born in [1995](DATE).
+      - The year in which she was born is [1995](DATE).
+      - She was born in the year [1995](DATE).
+      - She was born in [1995](DATE).
+      - [1995](DATE).
+      - In [1995](DATE).
+      - The year [1995](DATE).
+      - Oh, I think she was born in [1965](DATE).
+      - [1950](DATE).
+      - In [1950](DATE).
+      - He passed away in [1950](DATE).
+      - He died in [1950](DATE).
+      - He left us in [1950](DATE).
+      - She passed away in [1950](DATE).
+      - She died in [1950](DATE).
+      - She left us in [1950](DATE).
+      - [1924](DATE).
+      - In [1924](DATE).
+      - He passed away in [1924](DATE).
+      - He died in [1924](DATE).
+      - He left us in [1924](DATE).
+      - She passed away in [1924](DATE).
+      - She died in [1924](DATE).
+      - She left us in [1924](DATE).

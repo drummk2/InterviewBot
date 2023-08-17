@@ -1,0 +1,31 @@
+version: "3.1"
+
+rules:
+  - rule: Ask the user to rephrase whenever they send a message with a low NLU confidence.
+    steps:
+      - intent: nlu_fallback
+      - action: utter_rephrase
+
+  - rule: Get an ancestor's biography.
+    steps:
+      - intent: user_gives_biography
+      - action: action_biography_form
+      - active_loop: action_biography_form
+
+  - rule: Instruct the user on what to do next when they don't know the answer.
+    steps:
+      - intent: user_does_not_know
+      - action: utter_make_your_best_guess
+
+  - rule: Say "hello" when the user starts a conversation with intent "greet".
+    conversation_start: true
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Submit an ancestor's biography.
+    condition:
+      - active_loop: action_biography_form
+    steps:
+      - action: action_biography_form
+      - active_loop: null

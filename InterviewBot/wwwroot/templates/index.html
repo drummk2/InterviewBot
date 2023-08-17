@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width = device-width">
+        <title>Interview Bot</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="./static/styles/index.css">
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+        <script src="./static/scripts/js_family_tree/js/d3-dag.js"></script>
+        <script src="./static/scripts/js_family_tree/js/familytree.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+        <script src="/static/scripts/index.js"></script>
+    </head>
+    <body>
+        <div id="main-container">
+            <div id="icon-bar">
+                <a id="zoom-in-button" href="#"><i class="fa fa-search-plus"></i><span>Zoom In</span></a>
+                <a id="zoom-out-button" href="#"><i class="fa fa-search-minus"></i><span>Zoom Out</span></a>
+                <a id="help-button" href="#"><i class="fa fa-question-circle"></i><span>Help</span></a>
+            </div>
+            <div id="family-tree-container-border-wrapper">
+                <div id="intro-message-container">
+                    <div id="intro-message">
+                        <p>We're delighted that you have decided to use our genealogy bot, but before we get started, there are a couple of things that you should know:</p>
+                        <ul>
+                            <li><p><b>This bot is not intelligent</b>, and as such, will not be able to fully understand everything that you tell it e.g. anecdotes or local slang. It has been designed to chat with you about your family, in order to determine your family history.</p></li>
+                            <li><p>As you chat with this bot, it will try to generate a depiction of your family as a family tree. If you spot any mistakes, feel free to tell it, but be clear about the mistake that you've seen, to help our bot resolve it as quickly as possible.</p></li>
+                            <li><p><b>If at any point, you are unsure of what to say, just give your best guess. This information can be edited later by us.</b></p></li>
+                        </ul>
+                        <p>To get started, click on the
+                            <button id="intro-message-button" type="button" class="large css-qmypsf">
+                                <svg aria-hidden="true"
+                                     focusable="false"
+                                     data-prefix="fas"
+                                     data-icon="comment"
+                                     class="svg-inline--fa fa-comment fa-w-16 css-1fcbxrh"
+                                     role="img"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 512 512"
+                                     style="width: 1em;">
+                                    <path fill="currentColor"
+                                          d="M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 2.7 466 2.2 466.5c-2.2 2.3-2.8 5.7-1.5 8.7S4.8 480 8 480c66.3 0 116-31.8 140.6-51.4 32.7 12.3 69 19.4 107.4 19.4 141.4 0 256-93.1 256-208S397.4 32 256 32z"></path>
+                                </svg>
+                            </button>
+                            button and say "Hi".</p>
+                    </div>
+                </div>
+                <div id="family-tree-container"></div>
+            </div>
+        </div>
+
+        <div id="help-window-container" title="Help">
+            <details class="help-page-section">
+                <summary>How do I start talking to the chatbot?</summary>
+                <ul>
+                    <li class="help-page-point">Click on the button in the bottom-right corner and say "Hi".</li>
+                    <li class="help-page-point">If the chat window in the bottom-right corner is already open, say "Hi"</li>
+                </ul>
+            </details>
+            <hr class="solid">
+            <details class="help-page-section">
+                <summary>What can I do if I'm having trouble seeing the tree?</summary>
+                <ul>
+                    <li class="help-page-point">Click on the <i class="fa fa-search-minus"></i> button to make the tree smaller.</li>
+                    <li class="help-page-point">Click on the <i class="fa fa-search-plus"></i> button to make the tree bigger.</li>
+                    <li class="help-page-point">Place your mouse <i class="fa fa-mouse-pointer"></i> in the general vicinity of the tree, and then click and drag the mouse to navigate the tree.</li>
+                </ul>
+            </details>
+            <hr class="solid">
+            <details class="help-page-section">
+                <summary>How can I find out more about a specific person?</summary>
+                <ul>
+                    <li class="help-page-point">Hover the mouse <i class="fa fa-mouse-pointer"></i> over the node (the little circle) of the person that you'd like to know more about.</li>
+                </ul>
+            </details>
+            <hr class="solid">
+            <details class="help-page-section">
+                <summary>What can I do if there are too many branches on my screen?</summary>
+                <ul>
+                    <li class="help-page-point">Click on the node (the little circle) of a child to show/hide its parents and their parents, and so on...</li>
+                </ul>
+            </details>
+            <hr class="solid">
+            <details class="help-page-section">
+                <summary>What can I do if I misspell a name, or give the wrong year or location?</summary>
+                <ul>
+                    <li class="help-page-point">As long as you're still talking to our bot about that person, just say something like: "Actually, his name was Conor Murphy".
+                        <p style="color: red; font-size: 0.9em;"><b>Be sure to correct the bot while you're still talking about that person. Once the bot has moved on, it won't be able to correct someone from earlier.</b></p></li>
+                </ul>
+            </details>
+            <hr class="solid">
+            <details class="help-page-section">
+                <summary>What should I do if I'm asked to rephrase my previous message?</summary>
+                <ul>
+                    <li class="help-page-point">Our bot is not the most intelligent, so sometimes, it has a problem with understanding what you tell it.
+                        If, for example, you say "I'm John", and it asks you to rephrase it, try saying: "My name is John".</li>
+                </ul>
+            </details>
+                        <hr class="solid">
+            <details class="help-page-section">
+                <summary>What should I do if I don't know the answer to a question?</summary>
+                <ul>
+                    <li class="help-page-point">If at any point, you are unsure of what to say, just give your best guess. This information can be edited later by us.</li>
+                </ul>
+            </details>
+        </div>
+
+        <div id="rasa-chat-widget" data-websocket-url="http://localhost:5005"></div>
+        <script src="https://unpkg.com/@rasahq/rasa-chat" type="application/javascript"></script>
+
+        <script>
+            let data = {{initial_tree_representation|safe}}
+
+            const svg = d3.select("div#main-container > div#family-tree-container-border-wrapper > div#family-tree-container").append("svg")
+                .attr("id", "family-tree-svg");
+
+            family_tree = new FamilyTree(data, svg)
+                .node_size(node => node.is_union() ? 0 : 11)
+
+            /* Periodically check for updates to the user's family history and update the tree accordingly. */
+            setInterval(_ => {
+                family_tree.load_data_from_endpoint("{{family_tree_data_url}}")
+            }, 100);
+
+            /* In order to ensure that the chat window is automatically scrolled with new messages, we must automatically
+               scroll it by appending an ID to the chat window and scrolling it periodically. */
+            setInterval(_ => {
+                if ($(".css-14otd4b")[0]) {
+                    if (!$(".css-14otd4b").is("#chat-window")) {
+                        $('.css-14otd4b').attr('id','chat-window')
+                    } else {
+                        chatWindow = document.getElementById('chat-window');
+                        var windowHeight = chatWindow.scrollHeight;
+                        chatWindow.scrollTo(0, windowHeight);
+                    }
+                }
+            }, 200);
+        </script>
+    </body>
+</html>
